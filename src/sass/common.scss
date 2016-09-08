@@ -1,0 +1,85 @@
+.table-sticky-col-wrapper {
+	position: relative;
+	overflow:hidden;
+	width:100%;
+	visibility:hidden;
+	border-bottom: 1px solid gray;
+	&.willScroll {
+		@media (max-width:@screen-sm-max) {
+			&:after {
+				font-size:60px;
+				text-align:center;
+				line-height:80px;
+				width:80px;
+				height:80px;
+				border-radius:15px;
+				color:#FFFFFF;
+				border:solid 1px gray
+				display:block;
+				background:gray;
+				background:rgba(0,0,0,0.2);
+				position:absolute;
+				left:50%;
+				top:50%;
+				margin-top:-40px;
+				margin-left:-40px;
+				z-index:9999;
+				-webkit-transform: translate3d(0,0,0);
+				//prevent the overlay from blocking scrolling of the table
+				pointer-events: none;
+			}
+		}
+	}
+	.table-bordered {
+		border:0;
+	}
+	.table-sticky-col-inner {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		z-index:100!important;
+		position: relative;
+		border-right: 1px solid gray;
+		.table-sticky-col {
+			td, th {
+				padding:10px;
+				white-space: nowrap;
+				vertical-align: middle;
+			}
+			tr {
+				td {
+					&:first-child {
+						/* to ensure consistent widths in the cloned table */
+						font-weight:bold;
+						background-color:#ffffff;
+						visibility: hidden;
+					}
+				}
+			}
+		}
+	}
+	.fixed-column {
+		position:absolute;
+		z-index:200;
+		background:#ffffff;
+		/* fixes a bug with webkit browsers hiding the fixed column on page scroll */
+		-webkit-transform: translate3d(0,0,0);
+		display: table-cell;
+		width:auto;
+		border-left: 1px solid gray;
+		border-right: 1px solid gray;
+		&:extend(.text-center);
+		tbody {
+			tr {
+				td {
+					vertical-align:middle;
+					&:first-child {
+						font-weight:bold;
+					}
+				}
+				td, th {
+					padding:10px;
+				}
+			}
+		}
+	}
+}
