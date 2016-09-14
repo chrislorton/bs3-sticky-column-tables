@@ -1,0 +1,15 @@
+{
+  "name": "bs3-sticky-column-tables",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "author": "Chris Lorton",
+  "license": "ISC",
+  "description": "Tables with a sticky first column",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-less": "^3.1.0",
+    "gulp-watch": "^4.3.9"
+  }
+}
