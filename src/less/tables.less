@@ -2,44 +2,47 @@
 	position: relative;
 	overflow:hidden;
 	width:100%;
-	// visibility:hidden;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid #DDD;
+	margin-bottom:20px;
 	&.willScroll {
-		@media (max-width:@screen-sm-max) {
-			&:after {
-				font-size:60px;
-				text-align:center;
-				line-height:80px;
-				width:80px;
-				height:80px;
-				border-radius:15px;
-				color:#FFFFFF;
-				border:solid 1px gray;
-				display:block;
-				background:gray;
-				background:rgba(0,0,0,0.2);
-				position:absolute;
-				left:50%;
-				top:50%;
-				margin-top:-40px;
-				margin-left:-40px;
-				z-index:9999;
-				-webkit-transform: translate3d(0,0,0);
-				//prevent the overlay from blocking scrolling of the table
-				pointer-events: none;
-			}
+		&:after {
+			content:'\f07e';
+			font-family: 'FontAwesome';
+			font-size:60px;
+			text-align:center;
+			line-height:80px;
+			width:80px;
+			height:80px;
+			border-radius:15px;
+			color:#FFFFFF;
+			border:solid 1px rgba(0,0,0,0.1);
+			display:block;
+			background:gray;
+			background:rgba(0,0,0,0.2);
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-top:-40px;
+			margin-left:-40px;
+			z-index:9999;
+			-webkit-transform: translate3d(0,0,0);
+			//prevent the overlay from blocking scrolling of the table
+			pointer-events: none;
+		}
+		.fixed-column {
+			box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
+			-webkit-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
+			-moz-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
 		}
 	}
-	.table-bordered {
-		border:0;
-	}
-	.table-sticky-col-inner {
+	.table-sticky-col-outer {
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 		z-index:100!important;
 		position: relative;
-		border-right: 1px solid gray;
+		border-right: 1px solid #DDD;
 		.table-sticky-col {
+			margin-bottom:0;
 			td, th {
 				padding:10px;
 				white-space: nowrap;
@@ -65,9 +68,8 @@
 		-webkit-transform: translate3d(0,0,0);
 		display: table-cell;
 		width:auto;
-		border-left: 1px solid gray;
-		border-right: 1px solid gray;
-		&:extend(.text-center);
+		border-left: 1px solid #DDD;
+		border-right: 1px solid #DDD;
 		tbody {
 			tr {
 				td {
