@@ -1,25 +1,19 @@
 (function($){
 	$.fn.stickyTable = function(options){
 		var settings = $.extend({
-            scrollIndicator: true
+            scrollIndicator: 'true'
 		}, options );
 
-		var tables = this;
+		var tables = this; 
 
-		console.log(this);
-
-		$(window).on('resize', function(){
+		var width = $(window).width();
+		$(window).resize(function(){
+			if ($(window).width()==width) return;
+			width = $(window).width();
 			tables.each(function(){
 				onResize($(this));
 			});
 		});
-
-		// Remove the scroll indicator when table is scrolled
-		this.find('.table-sticky-col-outer').scroll(function(){
-			console.log(this);
-			$(this).parent().removeClass('willScroll');
-		});
-
 
 		// Functions to run on resize
 		function onResize($elem){
@@ -53,15 +47,18 @@
 			// Width and padding variables
 			var $padding = parseInt($('div[class*="col-"]').css('padding-left')) * 2;
 			var $availableWidth = $('.row').innerWidth() - $padding;
-
 			// Add the scroll indicator if table is too wide for container
-			var $mainTable = $($tableInstance);
-			var $tableWidth = $mainTable[0].scrollWidth;
-			var $tableWrapper = $tableInstance.parent().parent();
+			var $mainTable = $tableInstance[0];
+			var $tableWidth = $mainTable.scrollWidth;
+			var $tableWrapper = $tableInstance.parent().parent('.table-sticky-col-wrapper');
 			var $stickyColumnWidth = $tableWrapper.find('.fixed-column').width();
-			if($tableWidth > $availableWidth) {
+			$tableInstance.parent().scroll(function(){
+				$(this).parent().removeClass('willScroll').addClass('hasScrolled');
+			});
+			if(settings.scrollIndicator === 'true' && $tableWidth > $availableWidth) {
 				$tableWrapper.addClass('willScroll');
-			} else {
+			}
+			else {
 				$tableWrapper.removeClass('willScroll');
 			}
 		};
@@ -71,6 +68,5 @@
 			var $stickyWidth = $tableInstance.parent().find('td').first().outerWidth();
 			var test = $tableInstance.parent().siblings('.fixed-column').find('td').first().outerWidth($stickyWidth);
 		};
-
 	};
 }( jQuery ));

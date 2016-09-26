@@ -19,8 +19,8 @@ gulp.task('watch', function () {
 
 gulp.task('compress', function() {
     return gulp.src('src/js/*.js').pipe(minify({
-        minify: false,
+        minify: true,
         collapseWhitespace: true,
-        minifyJS: false,
-    })).pipe(gulp.dest('dist/js')); 
+        minifyJS: true,
+    })).pipe(gulp.dest('dist/js'));
 });
