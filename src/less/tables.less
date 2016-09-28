@@ -4,16 +4,28 @@
 	width:100%;
 	border-bottom: 1px solid #DDD;
 	margin-bottom:20px;
+	thead {
+		background:#999;
+		color:#FFF;
+	}
+	&.willScroll,
+	&.hasScrolled {
+		.fixed-column {
+			box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
+			-webkit-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
+			-moz-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
+		}
+	}
 	&.willScroll {
 		&:after {
 			content:'\f07e';
 			font-family: 'FontAwesome';
-			font-size:60px;
+			font-size:40px;
 			text-align:center;
-			line-height:80px;
-			width:80px;
-			height:80px;
-			border-radius:15px;
+			line-height:60px;
+			width:60px;
+			height:60px;
+			border-radius:10px;
 			color:#FFFFFF;
 			border:solid 1px rgba(0,0,0,0.1);
 			display:block;
@@ -22,17 +34,12 @@
 			position:absolute;
 			left:50%;
 			top:50%;
-			margin-top:-40px;
-			margin-left:-40px;
+			margin-top:-30px;
+			margin-left:-30px;
 			z-index:9999;
 			-webkit-transform: translate3d(0,0,0);
 			//prevent the overlay from blocking scrolling of the table
 			pointer-events: none;
-		}
-		.fixed-column {
-			box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
-			-webkit-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
-			-moz-box-shadow: 10px 0px 20px -15px rgba(0,0,0,0.5);
 		}
 	}
 	.table-sticky-col-outer {
@@ -47,15 +54,11 @@
 				padding:10px;
 				white-space: nowrap;
 				vertical-align: middle;
-			}
-			tr {
-				td {
-					&:first-child {
-						/* to ensure consistent widths in the cloned table */
-						font-weight:bold;
-						background-color:#ffffff;
-						visibility: hidden;
-					}
+				&:first-child {
+					/* to ensure consistent widths in the cloned table */
+					font-weight:bold;
+					background-color:#ffffff;
+					visibility: hidden;
 				}
 			}
 		}
@@ -70,17 +73,12 @@
 		width:auto;
 		border-left: 1px solid #DDD;
 		border-right: 1px solid #DDD;
-		tbody {
-			tr {
-				td {
-					vertical-align:middle;
-					&:first-child {
-						font-weight:bold;
-					}
-				}
-				td, th {
-					padding:10px;
-				}
+		td, th {
+			vertical-align:middle;
+			word-wrap:normal;
+			padding:10px;
+			&:first-child {
+				font-weight:bold;
 			}
 		}
 	}
