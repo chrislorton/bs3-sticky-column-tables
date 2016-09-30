@@ -33,7 +33,7 @@ $('.your-selector').stickyTable();
   ...
 </table>
 ```
-# Compatibility (as seperate from Bootstrap 3)
+# Compatibility
 
 - IE9+
 - iOS 5+
