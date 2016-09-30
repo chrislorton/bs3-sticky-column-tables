@@ -23,12 +23,16 @@ Shows or hides the scroll indicator
 
 - Add the JS to your HTML document
 
-- Invoke the function
+- Invoke the function on a &lt;table&gt; element
 
 ```
 $('.your-selector').stickyTable();
 ```
-
+```
+<table class="table your-selector">
+  ...
+</table>
+```
 # Compatibility (as seperate from Bootstrap 3)
 
 - IE9+
