@@ -4,7 +4,7 @@
             scrollIndicator: 'true'
 		}, options );
 
-		var tables = this; 
+		var tables = this;
 
 		var width = $(window).width();
 		$(window).resize(function(){
